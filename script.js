@@ -35,6 +35,36 @@ const notificationConfig = {
     color: 'hsl(120, 70%, 45%)',
     glowColor: 'hsl(120, 70%, 45%)',
     bgGlow: 'rgba(60, 200, 60, 0.15)',
+  },
+  convite: {
+    title: 'CONVITE',
+    color: 'hsl(45, 100%, 50%)',
+    glowColor: 'hsl(45, 100%, 50%)',
+    bgGlow: 'rgba(255, 200, 0, 0.15)',
+  },
+  sucesso: {
+    title: 'SUCESSO!',
+    color: 'hsl(120, 70%, 45%)',
+    glowColor: 'hsl(120, 70%, 45%)',
+    bgGlow: 'rgba(60, 200, 60, 0.15)',
+  },
+  rota: {
+    title: 'ROTA MARCADA',
+    color: 'hsl(210, 100%, 50%)',
+    glowColor: 'hsl(210, 100%, 50%)',
+    bgGlow: 'rgba(0, 100, 255, 0.15)',
+  },
+  rotaFinalizada: {
+    title: 'ROTA FINALIZADA',
+    color: 'hsl(120, 70%, 45%)',
+    glowColor: 'hsl(120, 70%, 45%)',
+    bgGlow: 'rgba(60, 200, 60, 0.15)',
+  },
+  erro: {
+    title: 'ERRO',
+    color: 'hsl(0, 80%, 55%)',
+    glowColor: 'hsl(0, 80%, 55%)',
+    bgGlow: 'rgba(255, 60, 60, 0.15)',
   }
 };
 
@@ -176,6 +206,31 @@ function onNotifyAtencao(data) {
   addNotification('atencao', data);
 }
 
+// Callback para notificação de Convite
+function onNotifyConvite(data) {
+  addNotification('convite', data);
+}
+
+// Callback para notificação de Sucesso
+function onNotifySucesso(data) {
+  addNotification('sucesso', data);
+}
+
+// Callback para notificação de Rota
+function onNotifyRota(data) {
+  addNotification('rota', data);
+}
+
+// Callback para notificação de Rota Finalizada
+function onNotifyRotaFinalizada(data) {
+  addNotification('rotaFinalizada', data);
+}
+
+// Callback para notificação de Erro
+function onNotifyErro(data) {
+  addNotification('erro', data);
+}
+
 // Registrar callbacks do CEF quando disponível
 if (typeof Cef !== 'undefined') {
   Cef.registerEventCallback('notifyAdm', 'onNotifyAdm');
@@ -184,6 +239,11 @@ if (typeof Cef !== 'undefined') {
   Cef.registerEventCallback('notifyHospital', 'onNotifyHospital');
   Cef.registerEventCallback('notifyIlegal', 'onNotifyIlegal');
   Cef.registerEventCallback('notifyAtencao', 'onNotifyAtencao');
+  Cef.registerEventCallback('notifyConvite', 'onNotifyConvite');
+  Cef.registerEventCallback('notifySucesso', 'onNotifySucesso');
+  Cef.registerEventCallback('notifyRota', 'onNotifyRota');
+  Cef.registerEventCallback('notifyRotaFinalizada', 'onNotifyRotaFinalizada');
+  Cef.registerEventCallback('notifyErro', 'onNotifyErro');
 }
 
 // Exportar funções para uso externo
